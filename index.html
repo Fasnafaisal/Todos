@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="style">
+        
+        <h1>My To Do List</h1>
+        <input type="text" id="item" placeholder="Title..." style="width: 250px; height: 25px;">
+        <button onclick="ToDos()" style="background-color: rgb(170, 168, 168); width: 70px; height: 30px; border-color: rgb(170, 168, 168);">Add</button>
+    </div>
+        <ul id="ul" >
+            
+            
+        </ul>
+    <script>
+         function ToDos() {
+            let item=document.getElementById('item').value
+            let list=document.createElement('li')
+            let text=document.createTextNode(item)
+            list.appendChild(text)
+            let ul=document.getElementById('ul')
+            ul.appendChild(list)
+            let span=document.createElement('span')
+            let close=document.createTextNode('x')
+            span.appendChild(close)
+            list.appendChild(span)
+
+            span.addEventListener('click',function(){
+                ul.removeChild(list)
+            })
+         }
+
+    </script>
+</body>
+</html>
+<style>
+    .style{
+        background-color: orangered;
+        color: white;
+        text-align: center;
+        padding: 50px;
+    }
+    ul{
+        position: relative;
+        overflow-y: scroll;
+        height: 70%;
+    }
+    li{
+        height: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    li:nth-child(even){
+        height: 30px;
+        background-color: rgb(241, 237, 230);
+
+    }
+    li:nth-child(odd){
+        height: 30px;
+        background-color: rgb(243, 172, 30);
+
+    }
+    span{
+        padding-left: 75%;
+    }
+    span:hover{
+        background-color: rgb(192, 184, 199);
+    }
+</style>
+
+
+
+
